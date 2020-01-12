@@ -1,21 +1,20 @@
-import React from 'react';
-
+import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { QUERY_AVAILABLE_ITEMS } from '../graphql'
-import { List } from 'antd';
+import { Row } from 'antd'
+import Item from './Item'
 
 function ListItem() {
   const { data } = useQuery(QUERY_AVAILABLE_ITEMS)
 
   return (
-    <List
-      size="default"
-      bordered
-      dataSource={data.itemsForSale}
-      renderItem={item => <List.Item>{item.title}</List.Item>}
-      style={{ width: 300 }}
-    />
-  );
+    <Row gutter={10}>
+      {data.itemsForSale &&
+        data.itemsForSale.map((item, index) => {
+          return <Item key={index} item={item} />
+        })}
+    </Row>
+  )
 }
 
-export default ListItem;
+export default ListItem

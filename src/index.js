@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { available_items } from './data';
+import { resolvers } from './resolvers';
 
 const cache = new InMemoryCache();
 const client = new ApolloClient({
@@ -19,8 +20,9 @@ const client = new ApolloClient({
         __typename: 'Cart'
       },
       itemsForSale: available_items
-    }
-  }
+    },
+    resolvers
+  },
 })
 
 ReactDOM.render(

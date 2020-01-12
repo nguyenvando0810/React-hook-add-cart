@@ -28,7 +28,34 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ant-card-cover img {
+  height: 220px;
+}
+
+.ant-col-5 {
+  width: 20% !important;
+}
+
+.cart {
+  padding: 20px;
+}
+
+h2 {
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 10px;
 }
