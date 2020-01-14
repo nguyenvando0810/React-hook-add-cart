@@ -14,18 +14,18 @@ export const QUERY_AVAILABLE_ITEMS = gql`
 export const QUERY_CART_INFO = gql`
   query {
     cart @client {
-      items {
-        id
-        title
-        thumbnail_url
-        price
-      }
+      items
       total
     }
   }
 `
 export const MUTATION_ADD_TO_CART = gql`
+  mutation ($id: String!, $quantity: Number!) {
+    addToCart(id: $id, quantity: $quantity) @client
+  }
+`
+export const MUTATION_DELETE_TO_CART = gql`
   mutation ($id: String!) {
-    addToCart(id: $id)  @client
+    deleteToCart(id: $id) @client
   }
 `

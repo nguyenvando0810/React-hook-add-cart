@@ -11,11 +11,21 @@ const options = {
   chart: {
     type: 'line'
   },
+  credits: {
+    enabled: false
+  },
   title: {
-    text: 'Monthly Average Temperature'
+    text: 'Đô Đô'
   },
   subtitle: {
-    text: 'Source: WorldClimate.com'
+    text: 'Vẫn là Đô Đô nhưng là subtitle.'
+  },
+  tooltip: {
+    shared: true,
+    backgroundColor: '#FCFFC5',
+    borderColor: 'black',
+    borderRadius: 10,
+    borderWidth: 3
   },
   xAxis: {
     categories: [
@@ -54,6 +64,10 @@ const options = {
     {
       name: 'London',
       data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+    },
+    {
+      name: 'Viet',
+      data: [3.3, 4.7, 5.7, 8.7, 11, 6, 17.0, 16.8, 14.6, 10.5, 6.3, 8.8]
     }
   ]
 }

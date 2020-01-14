@@ -59,3 +59,10 @@ h2 {
   border-bottom: 1px solid #CCCCCC;
   padding-bottom: 10px;
 }
+
+.anticon-close-circle {
+  float: right;
+  top: 4px;
+  position: relative;
+  cursor: pointer;
+}

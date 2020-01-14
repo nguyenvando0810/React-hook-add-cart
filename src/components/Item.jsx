@@ -5,7 +5,7 @@ import { MUTATION_ADD_TO_CART } from '../graphql'
 
 function Item({ item }) {
   const [addToCart] = useMutation(MUTATION_ADD_TO_CART, {
-    variables: { id: item.id }
+    variables: { id: item.id, quantity: 1 }
   })
 
   return (
