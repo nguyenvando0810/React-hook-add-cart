@@ -14,7 +14,7 @@ function Cart() {
   return (
     <div className="cart">
       <h2>My Cart</h2>
-      {data.cart.items.map((item, index) => <p key={index}>{item.item.title} <Icon type="close-circle" onClick={() => handleDeleteCart(item.item.id)} /></p>)}
+      {data.cart.items.map((item, index) => <p key={index}>{item.item.title}  <span>{item.quantity}</span><Icon type="close-circle" onClick={() => handleDeleteCart(item.item.id)} /></p>)}
       <p>Total : <strong>$ {data.cart.total.toFixed(2)}</strong></p>
     </div>
   )
