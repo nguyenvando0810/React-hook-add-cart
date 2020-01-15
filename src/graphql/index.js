@@ -19,13 +19,21 @@ export const QUERY_CART_INFO = gql`
     }
   }
 `
+
 export const MUTATION_ADD_TO_CART = gql`
   mutation ($id: String!, $quantity: Number!) {
     addToCart(id: $id, quantity: $quantity) @client
   }
 `
+
 export const MUTATION_DELETE_TO_CART = gql`
   mutation ($id: String!) {
     deleteToCart(id: $id) @client
+  }
+`
+
+export const MUTATION_UPDATE_QUANTITY_TO_CART = gql`
+  mutation ($id: String!, $quantity: Number!) {
+    updateQuantityToCart(id: $id, quantity: $quantity) @client
   }
 `

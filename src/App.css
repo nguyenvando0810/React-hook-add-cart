@@ -52,7 +52,7 @@
 }
 
 .cart {
-  padding: 20px;
+  padding: 20px 15px;
 }
 
 h2 {
@@ -65,4 +65,10 @@ h2 {
   top: 4px;
   position: relative;
   cursor: pointer;
+}
+
+.cart .title {
+  width: 70px;
+  display: inline-block;
+  margin-right: 10px;
 }

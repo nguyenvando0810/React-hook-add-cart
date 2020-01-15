@@ -13,12 +13,12 @@ export const resolvers = {
       let dataClone = [...cart.items]
 
       for (let i = 0; i < cart.items.length; i++) {
-        if(cart.items[i].item.id === args.id) {
+        if (cart.items[i].item.id === args.id) {
           indexCart = i
         }
       }
 
-      if( indexCart !== -1) {
+      if ( indexCart !== -1) {
         dataClone[indexCart].quantity += args.quantity
       } else {
         dataClone= [...dataClone, {
