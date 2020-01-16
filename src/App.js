@@ -6,6 +6,8 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import { Row, Col } from 'antd'
 import Cart from './components/Cart'
+import { TypeChooser } from "react-stockcharts/lib/helper";
+import Chart from './Chart'
 
 const options = {
   chart: {
@@ -72,13 +74,58 @@ const options = {
   ]
 }
 
+const data = [
+  {
+    x: "xApple",
+    y1: 10,
+    y2: 5,
+    y3: 15,
+    y4: 10
+  },
+  {
+    x: "Banana",
+    y1: 15,
+    y2: 10,
+    y3: 5,
+    y4: 10
+  },
+  {
+    x: "Strawberry",
+    y1: 20,
+    y2: 15,
+    y3: 5,
+    y4: 10
+  },
+  {
+    x: "Lemon",
+    y1: 25,
+    y2: 20,
+    y3: 5,
+    y4: 10
+  },
+  {
+    x: "Cherry",
+    y1: 30,
+    y2: 25,
+    y3: 10,
+    y4: 10
+  },
+  {
+    x: "Peach",
+    y1: 35,
+    y2: 30,
+    y3: 15,
+    y4: 10
+  }
+]
+
 function App() {
   return (
-    <div className="App container">
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <div className="content">
+      <div className="content container" style={{ marginTop: 20 }}>
         <Row>
           <Col span={20}>
             <ListItem />
@@ -89,6 +136,10 @@ function App() {
         </Row>
 
         <HighchartsReact highcharts={Highcharts} options={options} />
+
+        <TypeChooser>
+          {type => <Chart type={type} data={data} />}
+        </TypeChooser>
       </div>
     </div>
   )

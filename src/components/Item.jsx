@@ -17,7 +17,7 @@ function Item({ item }) {
         <strong>{item.title}</strong>
         <p>$ {item.price}</p>
         <Button type="primary" onClick={() => addToCart(item)}>
-          Add to card
+          Add Card
         </Button>
       </Card>
     </Col>

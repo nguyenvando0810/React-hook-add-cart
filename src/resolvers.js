@@ -42,7 +42,7 @@ export const resolvers = {
         }
       })
 
-      return itemAdd[0]
+      localStorage.setItem("CART", JSON.stringify(cart));
     },
 
     deleteToCart: (_, args, { cache }) => {
@@ -60,7 +60,37 @@ export const resolvers = {
         }
       })
 
-      return itemDelete[0]
+      localStorage.setItem("CART", cart);
     },
+
+    updateQuantityToCart: (_, args, { cache }) => {
+      const { cart } = cache.readQuery({ query: QUERY_CART_INFO })
+      let total = 0
+      let itemUpdate = cart.items.filter(item=> item.item.id === args.id)
+      let newItemUpdate = itemUpdate[0]
+      newItemUpdate.quantity = args.quantity
+
+      let indexItemUpdate = cart.items.findIndex(item=> item.item.id === args.id)
+
+      let dataClone = [...cart.items]
+      dataClone = [...dataClone.slice(0, indexItemUpdate), newItemUpdate, ...dataClone.slice(indexItemUpdate, dataClone.slength + 1)]
+
+      for (let i = 0; i < dataClone.length; i++) {
+        total += dataClone[i].item.price * dataClone[i].quantity
+      }
+
+      cache.writeQuery({
+        query: QUERY_CART_INFO,
+        data: {
+          cart: {
+            items: dataClone,
+            total: total,
+            __typename: 'Cart'
+          }
+        }
+      })
+
+      localStorage.setItem("CART", cart);
+    }
   }
 }

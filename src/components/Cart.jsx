@@ -13,24 +13,25 @@ function Cart() {
   }
 
   const handleUpdateQuantity = (id, quantity) => {
-    console.log("TCL: handleUpdateQuantity -> quantity", quantity)
-    console.log("TCL: handleUpdateQuantity -> id", id)
-    // updateQuantityToCart()
+    updateQuantityToCart({ variables: { id, quantity } })
   }
 
   return (
     <div className="cart">
       <h2>My Cart</h2>
-      {data.cart.items.map((item, index) => <p key={index}>
-        <span className="title">{item.item.title}</span>
-        <span>
-          <Icon type="minus-circle" onClick={() => handleUpdateQuantity(item.item.id, item.quantity)} />
-          &nbsp;&nbsp;{item.quantity}&nbsp;&nbsp;
-          <Icon type="plus-circle" />
-        </span>
-        <Icon type="close-circle" onClick={() => handleDeleteCart(item.item.id)} />
-      </p>)}
-      <p>Total : <strong>$ {data.cart.total.toFixed(2)}</strong></p>
+
+      {data.cart.items.map((item, index) =>
+        <p key={index}>
+          <span className="title">{item.item.title}</span>
+          <span>
+            <Icon type="minus-circle" onClick={() => handleUpdateQuantity(item.item.id, item.quantity - 1)} />
+            &nbsp;&nbsp;<strong>{item.quantity}</strong>&nbsp;&nbsp;
+            <Icon type="plus-circle" onClick={() => handleUpdateQuantity(item.item.id, item.quantity + 1)} />
+          </span>
+          <Icon type="close-circle" onClick={() => handleDeleteCart(item.item.id)} />
+        </p>
+      )}
+      <p>Total: <strong>${data.cart.total.toFixed(2)}</strong></p>
     </div>
   )
 }

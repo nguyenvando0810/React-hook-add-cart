@@ -8,6 +8,8 @@ import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { available_items } from './data';
 import { resolvers } from './resolvers';
+let dataStorate = JSON.parse(localStorage.getItem("CART"));
+console.log("TCL: dataStorate", dataStorate)
 
 const cache = new InMemoryCache();
 const client = new ApolloClient({
