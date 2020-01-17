@@ -18,7 +18,7 @@ function Cart() {
 
   return (
     <div className="cart">
-      <h2>My Cart</h2>
+      <h2 contenteditable>My Cart</h2>
 
       {data.cart.items.map((item, index) =>
         <p key={index}>

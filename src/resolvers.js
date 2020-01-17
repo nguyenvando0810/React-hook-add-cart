@@ -41,8 +41,6 @@ export const resolvers = {
           }
         }
       })
-
-      localStorage.setItem("CART", JSON.stringify(cart));
     },
 
     deleteToCart: (_, args, { cache }) => {
@@ -59,8 +57,6 @@ export const resolvers = {
           }
         }
       })
-
-      localStorage.setItem("CART", cart);
     },
 
     updateQuantityToCart: (_, args, { cache }) => {
@@ -89,8 +85,6 @@ export const resolvers = {
           }
         }
       })
-
-      localStorage.setItem("CART", cart);
     }
   }
 }

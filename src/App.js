@@ -4,10 +4,11 @@ import './App.css'
 import ListItem from './components/ListItem'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import { Row, Col } from 'antd'
+import { Row, Col, Button } from 'antd'
 import Cart from './components/Cart'
 import { TypeChooser } from "react-stockcharts/lib/helper";
 import Chart from './Chart'
+import { useTranslation, Trans } from "react-i18next";
 
 const options = {
   chart: {
@@ -120,12 +121,25 @@ const data = [
 ]
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = lng => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+
       <div className="content container" style={{ marginTop: 20 }}>
+        <p>{t("hello")}</p>
+        <p>{t("do")}</p>
+        {/* <Trans i18nKey="hello" /> */}
+        <Button type="primary" onClick={() => changeLanguage("vn")}>VN</Button>&nbsp;
+        <Button type="primary" onClick={() => changeLanguage("en")}>EN</Button>
+        <p></p>
         <Row>
           <Col span={20}>
             <ListItem />
