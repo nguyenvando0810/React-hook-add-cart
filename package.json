@@ -15,7 +15,7 @@
     "d3-scale": "^1.0.7",
     "d3-time-format": "^2.1.1",
     "graphql": "^14.5.8",
-    "highcharts": "^8.0.0",
+    "highcharts": "^9.0.0",
     "highcharts-react-official": "^2.2.2",
     "i18next": "^19.0.3",
     "i18next-browser-languagedetector": "^4.0.1",
